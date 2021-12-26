@@ -89,6 +89,117 @@ void head(){
  gluSphere(h, 1.0, 10, 10);
  glPopMatrix();
  
+//eye
+ glPushMatrix();
+ glColor3ub(0,0,0); //black
+ glTranslatef(3.10, -2.0, 0.50);
+ gluSphere(h, 0.2, 10, 10);
+ glTranslatef(0.0, 0.0, -1.0);
+ gluSphere(h, 0.2, 10, 10);
+ glColor3ub(139,90,43); //tan4
+ glPopMatrix();
+ glPopMatrix();
+
+}
+
+void left_upper_front(){
+ glPushMatrix();
+ glTranslatef(0.60, -2.40, 0.7);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(luf,UPPER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(luf, UPPER_FRONT_RADIUS, UPPER_FRONT_RADIUS, UPPER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, UPPER_FRONT_HEIGHT);
+ gluSphere(luf,UPPER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+void left_lower_front(){
+ glPushMatrix();
+ glTranslatef(0.60, -2.60, 0.7);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(llf,LOWER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(llf, LOWER_FRONT_RADIUS, LOWER_FRONT_RADIUS, LOWER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, LOWER_FRONT_HEIGHT);
+ gluSphere(llf,LOWER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+void right_upper_front(){
+ glPushMatrix();
+ glTranslatef(0.6, -2.50, -0.7);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(ruf,UPPER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(ruf, UPPER_FRONT_RADIUS, UPPER_FRONT_RADIUS, UPPER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, UPPER_FRONT_HEIGHT);
+ gluSphere(ruf,UPPER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+void right_lower_front(){
+ glPushMatrix();
+ glTranslatef(0.60, -2.50, -0.70);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(rlf,LOWER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(rlf, LOWER_FRONT_RADIUS, LOWER_FRONT_RADIUS, LOWER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, LOWER_FRONT_HEIGHT);
+ gluSphere(rlf,LOWER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+
+void left_upper_back(){
+ glPushMatrix();
+ glTranslatef(0.6, -2.60, 0.7);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(lub,UPPER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(lub, UPPER_FRONT_RADIUS, UPPER_FRONT_RADIUS, UPPER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, UPPER_FRONT_HEIGHT);
+ gluSphere(lub,UPPER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+void left_lower_back(){
+ glPushMatrix();
+ glTranslatef(4.50, -2.60, 0.70);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(llb,LOWER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(llb, LOWER_FRONT_RADIUS, LOWER_FRONT_RADIUS, LOWER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, LOWER_FRONT_HEIGHT);
+ gluSphere(llb,LOWER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+void right_upper_back(){
+ glPushMatrix();
+ glTranslatef(0.6, -2.60, -0.7);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(rub,UPPER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(rub, UPPER_FRONT_RADIUS, UPPER_FRONT_RADIUS, UPPER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, UPPER_FRONT_HEIGHT);
+ gluSphere(rub,UPPER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+void right_lower_back(){
+ glPushMatrix();
+ glTranslatef(4.50, -2.60, -0.70);
+ glRotatef(-90.0, 1.0, 0.0, 0.0);
+ gluSphere(rlb,LOWER_FRONT_RADIUS, 10, 10 );
+ gluCylinder(rlb, LOWER_FRONT_RADIUS, LOWER_FRONT_RADIUS, LOWER_FRONT_HEIGHT, 10, 10);
+ glTranslatef(0.0,  0.0, LOWER_FRONT_HEIGHT);
+ gluSphere(rlb,LOWER_FRONT_RADIUS, 10, 10 );
+ glPopMatrix();
+}
+
+void display(void){
+ glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+ glLoadIdentity();
+ glPushMatrix();
+ glRotatef(xRot, 1.0, 0.0, 0.0);
+ glRotatef(yRot, 0.0, 1.0, 0.0);
+ traverse(&torso_node);
+ glPopMatrix();
+
  //the move
  //torso
  glPushMatrix();
