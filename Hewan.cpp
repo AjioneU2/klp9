@@ -88,3 +88,79 @@ void head(){
  glScalef(1.70, 1.0, 1.40);
  gluSphere(h, 1.0, 10, 10);
  glPopMatrix();
+ 
+ //the move
+ //torso
+ glPushMatrix();
+    glRotatef(theta[0], 0.0, 1.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,torso_node.m);
+ theta[0] += acc1;
+ glPopMatrix();
+
+ //head
+ glPushMatrix();
+    glRotatef(theta[1], 0.0, 1.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,head_node.m);
+ if(theta[1] > 20 || theta[1] < -60)
+  acc = -acc;
+ theta[1] += acc;
+ glPopMatrix();
+
+ //luf
+ glPushMatrix();
+    glRotatef(theta[3], 0.0, 0.0, 1.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,luf_node.m);
+ if(theta[3] > 10 || theta[3] < -10)
+  acc1 = -acc1;
+ theta[3] += 2*acc1;
+ glPopMatrix();
+ //llf
+ glPushMatrix();
+    glRotatef(theta[4], 0.0, 1.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,llf_node.m);
+ if(theta[4] > 0 || theta[4] < -10)
+  acc2 = -acc2;
+ theta[4] += acc2;
+ glPopMatrix();
+
+ //lub
+ glPushMatrix();
+ glTranslatef(-4.0, 0.0, 0.0);
+ glPushMatrix();
+    glRotatef(theta[7], 0.0, 0.0, 1.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,lub_node.m);
+ theta[7] += 2*acc1;
+ glPopMatrix();
+ glPopMatrix();
+ //llb
+ glPushMatrix();
+ glTranslatef(-4.0, 0.0, 0.0);
+ glPushMatrix();
+    glRotatef(theta[8], 0.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,llb_node.m);
+ theta[8] += acc2;
+ glPopMatrix();
+ glPopMatrix();
+
+ //ruf
+ glPushMatrix();
+    glRotatef(theta[5], 0.0, 0.0, 1.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,ruf_node.m);
+ theta[5] += 2*-acc1;
+ glPopMatrix();
+ //rlf
+ glPushMatrix();
+    glRotatef(theta[6], 0.0, 1.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,rlf_node.m);
+ theta[6] += -acc2;
+ glPopMatrix();
+
+ //rub
+ glPushMatrix();
+ glTranslatef(-4.0, 0.0, 0.0);
+ glPushMatrix();
+    glRotatef(theta[9], 0.0, 0.0, 1.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX,rub_node.m);
+ theta[9] += 2*-acc1;
+ glPopMatrix();
+ glPopMatrix();
