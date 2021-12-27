@@ -336,3 +336,106 @@ void SetupRC(){
     // with a high shine
     glMaterialfv(GL_FRONT, GL_SPECULAR, specref);
     glMateriali(GL_FRONT, GL_SHININESS, 128);
+
+
+    
+    // white background
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f );
+
+    glEnable(GL_NORMALIZE);
+
+
+ h=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ t=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ luf=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ llf=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ ruf=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ rlf=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ lub=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ llb=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ rub=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+ rlb=gluNewQuadric();
+ gluQuadricDrawStyle(h, GLU_FILL);
+
+
+ /*set up tree*/
+ glLoadIdentity();
+ glRotatef(theta[0], 0.0, 1.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, torso_node.m);
+ torso_node.f=torso;
+ torso_node.sibling = &head_node;
+ torso_node.child = NULL;
+
+ glLoadIdentity();
+ glRotatef(theta[1], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, head_node.m);
+ head_node.f = head;
+ head_node.sibling = &luf_node;
+ head_node.child = NULL;
+
+ glLoadIdentity();
+ glRotatef(theta[3], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, luf_node.m);
+ luf_node.f = left_upper_front;
+ luf_node.sibling = &ruf_node;
+ luf_node.child = &llf_node;
+
+ glLoadIdentity();
+ glRotatef(theta[5], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, ruf_node.m);
+ ruf_node.f = right_upper_front;
+ ruf_node.sibling = &lub_node;
+ ruf_node.child = &rlf_node;
+
+ glLoadIdentity();
+ glRotatef(theta[7], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, lub_node.m);
+ lub_node.f = left_upper_back;
+ lub_node.sibling = &rub_node;
+ lub_node.child = &llb_node;
+
+ glLoadIdentity();
+ glRotatef(theta[9], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, rub_node.m);
+ rub_node.f = right_upper_back;
+ rub_node.sibling = NULL;
+ rub_node.child = &rlb_node;
+
+ glLoadIdentity();
+ glRotatef(theta[4], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, llf_node.m);
+ llf_node.f = left_lower_front;
+ llf_node.sibling = NULL;
+ llf_node.child = NULL;
+
+ glLoadIdentity();
+ glRotatef(theta[6], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, rlf_node.m);
+ rlf_node.f = right_lower_front;
+ rlf_node.sibling = NULL;
+ rlf_node.child = NULL;
+
+ glLoadIdentity();
+ glRotatef(theta[8], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, llb_node.m);
+ llb_node.f = left_lower_back;
+ llb_node.sibling = NULL;
+ llb_node.child = NULL;
+
+ glLoadIdentity();
+ glRotatef(theta[10], 1.0, 0.0, 0.0);
+ glGetFloatv(GL_MODELVIEW_MATRIX, rlb_node.m);
+ rlb_node.f = right_lower_back;
+ rlb_node.sibling = NULL;
+ rlb_node.child = NULL;
+
+}
