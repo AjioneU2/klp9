@@ -439,3 +439,51 @@ void SetupRC(){
  rlb_node.child = NULL;
 
 }
+
+
+// Handle arrow keys
+void SpecialKeys(int key, int x, int y){
+    if(key == GLUT_KEY_UP)
+        xRot-= 5.0f;
+
+    if(key == GLUT_KEY_DOWN)
+        xRot += 5.0f;
+
+    if(key == GLUT_KEY_LEFT)
+        yRot -= 5.0f;
+
+    if(key == GLUT_KEY_RIGHT)
+        yRot += 5.0f;
+
+    if(key > 356.0f)
+        xRot = 0.0f;
+
+    if(key < -1.0f)
+        xRot = 355.0f;
+
+    if(key > 356.0f)
+        yRot = 0.0f;
+
+    if(key < -1.0f)
+        yRot = 355.0f;
+
+    // Refresh the Window
+    glutPostRedisplay();
+}
+
+
+int main(int argc, char* argv[]){
+ glutInit(&argc, argv);
+ glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+ glutInitWindowSize(500, 500);
+ glutInitWindowPosition(230, 170);
+ glutCreateWindow(".:OpenGL- Brown Eyed Dog:.");
+ glutTimerFunc(500, TimerFunc, 1);
+ SetupRC();
+ glutSpecialFunc(SpecialKeys);
+ glutReshapeFunc(myReshape);
+ glutDisplayFunc(display);
+ glutMainLoop();
+}
+
+
