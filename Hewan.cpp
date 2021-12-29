@@ -88,6 +88,21 @@ void head(){
  glScalef(1.70, 1.0, 1.40);
  gluSphere(h, 1.0, 10, 10);
  glPopMatrix();
+
+  //ear
+ glPushMatrix();
+ glTranslatef(2.0, -1.80, 0.70);
+ glPushMatrix();
+ glScalef(0.50, 1.30, 1.30);
+ gluSphere(h, 0.5, 10, 10);
+ glPopMatrix();
+ glTranslatef(0.0, 0.0, -1.40);
+ glPushMatrix();
+ glScalef(0.50, 1.30, 1.30);
+ gluSphere(h, 0.5, 10, 10);
+ glPopMatrix();
+ glPopMatrix();
+ 
  
 //eye
  glPushMatrix();
