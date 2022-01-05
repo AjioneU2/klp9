@@ -10,7 +10,7 @@
 #define HEAD_RADIUS 1.0
 
 #include <GL/glut.h>
-
+//komentar
 // Rotation amounts
 static GLfloat xRot = 0.0f;
 static GLfloat yRot = 0.0f;
