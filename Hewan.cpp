@@ -89,7 +89,7 @@ void head(){
  gluSphere(h, 1.0, 10, 10);
  glPopMatrix();
 
-  //ear
+  //ear(telinga)
  glPushMatrix();
  glTranslatef(2.0, -1.80, 0.70);
  glPushMatrix();
