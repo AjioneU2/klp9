@@ -104,7 +104,7 @@ void head(){
  glPopMatrix();
  
  
-//eye
+//eye(mata hewan)
  glPushMatrix();
  glColor3ub(0,0,0); //black
  glTranslatef(3.10, -2.0, 0.50);
