@@ -11,6 +11,7 @@
 
 #include <GL/glut.h>
 //komentar
+// hanya komentar
 // Rotation amounts
 static GLfloat xRot = 0.0f;
 static GLfloat yRot = 0.0f;
